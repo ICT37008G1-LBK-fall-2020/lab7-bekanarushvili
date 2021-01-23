@@ -4,6 +4,9 @@
   "description": "My first npm project",
   "main": "index.js",
   "scripts": {
+    "build": "browserify --entry index.js --outfile bundle.js",
+    "buildbabel": "browserify --entry index.js -o bundle.js -t [ babelify --presets [ @babel/preset-env] ]",
+    "buildw": "watchify --entry index.js -o bundle.js -t [ babelify --presets [ @babel/preset-env] ] -v",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -12,5 +15,12 @@
     "init"
   ],
   "author": "bekanarushvili",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "babelify": "^10.0.0",
+    "watchify": "^3.11.1"
+  },
+  "dependencies": {
+    "jquery": "^3.5.1"
+  }
 }
